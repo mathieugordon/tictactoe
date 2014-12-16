@@ -1,0 +1,29 @@
+<h1>New match</h1>
+
+<%= form_for @match do |m| %>
+
+  <% if @match.errors.any? %>
+    <div class="error">
+      Match not saved due to the following errors:
+      <ul>
+        <% @match.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <tr>
+      <td><%= m.label :player_x_id %></td>
+      <td><%= m.text_field :player_x_id %></td>
+    </tr>
+    <tr>
+      <td><%= m.label :player_o_id %></td>
+      <td><%= m.text_field :player_o_id %></td>
+    </tr>
+  </table>
+
+  <%= m.submit "Start new match" %>
+
+<% end %>

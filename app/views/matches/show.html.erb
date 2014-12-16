@@ -1,3 +1,5 @@
 <h1>Match <%= @match.id %></h1>
 
-<p><%= @match.player_x_id %> vs. <%= @match.player_o_id %></p>
+<h2><%= @match.player_x_id %> vs. <%= @match.player_o_id %></h2>
+
+<ul><%= render @match.moves.order(:cell) %></ul>

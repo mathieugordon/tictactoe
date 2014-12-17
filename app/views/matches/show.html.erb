@@ -10,54 +10,45 @@
 <% end %>
 
 <div class="text">
-
   <h1>Match <%= @match.id %></h1>
-
   <h2><%= @match.long_description(current_user) %></h2>
- 
   <table>
     <tr>
       <td>X: </td>
       <td>
-        <div class= "tag <%= @match.player_result_tag(@match.player_x) %>">
+        <div class= "tag <%= @match.player_tag(@match.player_x) %>">
           <%= link_to @match.player_x.name, user_path(@match.player_x) %>
         </div>
       </td>
       <td>
-        <%= @match.next_player_with_arrow(@match.player_x) %>
-        <%= @match.player_result_with_arrow(@match.player_x) %>
+        <%= @match.player_indicator(@match.player_x) %>
       </td>
     </tr>
     <tr>
       <td>O: </td>
       <td>
-        <div class= "tag <%= @match.player_result_tag(@match.player_o) %>">
+        <div class= "tag <%= @match.player_tag(@match.player_o) %>">
           <%= link_to @match.player_o.name, user_path(@match.player_o) %>
         </div>
       </td>
       <td>
-        <%= @match.next_player_with_arrow(@match.player_o) %>
-        <%= @match.player_result_with_arrow(@match.player_o) %>
+        <%= @match.player_indicator(@match.player_o) %>
       </td>
     </tr>
   </table>
-
 </div>
 
 <div class="board">
-  
   <table>
     <% @match.board.each_slice(3) do |slice| %>
       <tr>
         <% slice.each do |cell| %>
           <td>
             <% if @match.moves.where(cell: cell).any? %>
-              <%= render @match.moves.where(cell: cell) %>
+              <%= @match.moves.where(cell: cell).first.marker %>
             <% else %>
-              <% if @match.next_player == current_user && !@match.complete? %>
+              <% if @match.in_progress? && @match.next_player?(current_user) %>
                 <%= link_to @match.marker(current_user), move_path(@match, cell: cell), method: :post %>
-              <% else %>
-                ⬚
               <% end %>
             <% end %>
           </td>
@@ -65,5 +56,4 @@
       </tr>
     <% end %>
   </table>
-
 </div>

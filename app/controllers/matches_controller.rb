@@ -3,8 +3,8 @@ class MatchesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @matches_in_progress = Match.where('player_x_id = ? OR player_o_id = ?', current_user.id, current_user.id)
-    @completed_matches = Match.where('player_x_id = ? OR player_o_id = ?', current_user.id, current_user.id)
+    @matches_in_progress = Match.where('status = ? AND (player_x_id = ? OR player_o_id = ?)', "in progress", current_user.id, current_user.id)
+    @completed_matches = Match.where('(status = ? OR status = ?) AND (player_x_id = ? OR player_o_id = ?)', "won", "drawn", current_user.id, current_user.id)
   end
 
   def show
@@ -16,11 +16,12 @@ class MatchesController < ApplicationController
 
   def create
     if params[:icon] == "X"
-      @match = Match.new(player_x_id: current_user.id, player_o_id: match_params[:player_o_id])
+      @match = Match.create(player_x_id: current_user.id, player_o_id: match_params[:player_o_id], status: "in progress")
     else
-      @match = Match.new(player_x_id: match_params[:player_o_id], player_o_id: current_user.id)
+      @match = Match.create(player_x_id: match_params[:player_o_id], player_o_id: current_user.id, status: "in progress")
     end
     if @match.save
+      @match.check_and_update!
       redirect_to(@match)
     else
       render :new
@@ -29,9 +30,9 @@ class MatchesController < ApplicationController
 
   def move
     @match = Match.find(params[:id])
-    @move = Move.new(match_id: @match.id, player_id: current_user.id, cell: params[:cell], marker: @match.marker(current_user))
+    @move = Move.create(match_id: @match.id, player_id: current_user.id, cell: params[:cell], marker: @match.marker(current_user))
     if @move.save
-      @match.analyze!
+      @match.check_and_update!
       redirect_to(@match)
     else
       render :show

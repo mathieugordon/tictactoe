@@ -10,7 +10,7 @@ class Ability
         can :manage, Match
         can :manage, User, id: user.id
     else
-        can :read, :all
+        can :read, User
     end
   end
 

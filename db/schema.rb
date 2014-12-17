@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20141216213657) do
   create_table "matches", force: true do |t|
     t.integer  "player_x_id"
     t.integer  "player_o_id"
-    t.boolean  "complete?"
+    t.string   "status"
     t.integer  "winning_player_id"
     t.integer  "losing_player_id"
     t.datetime "created_at"

@@ -9,12 +9,15 @@ class MatchesController < ApplicationController
   end
 
   def new
-    @opponents = User.all
-    @opponents.delete(current_user)
+    @opponents = User.where.not(id: current_user.id)
   end
 
   def create
-    @match = Match.new(match_params)
+    if params[:icon] == "X"
+      @match = Match.new(player_x_id: current_user.id, player_o_id: match_params[:player_o_id])
+    else
+      @match = Match.new(player_x_id: match_params[:player_o_id], player_o_id: current_user.id)
+    end
     if @match.save
       redirect_to(@match)
     else
@@ -24,7 +27,7 @@ class MatchesController < ApplicationController
 
   def move
     @match = Match.find(params[:id])
-    @move = Move.create(match_id: @match.id, player_id: current_user.id, cell: params[:cell], marker: @match.marker(current_user))
+    @move = Move.new(match_id: @match.id, player_id: current_user.id, cell: params[:cell], marker: @match.marker(current_user))
     if @move.save
       @match.analyze!
       redirect_to(@match)
@@ -35,7 +38,6 @@ class MatchesController < ApplicationController
 
   def match_params
     params.require(:match).permit(
-      :player_x_id,
       :player_o_id
       )
   end

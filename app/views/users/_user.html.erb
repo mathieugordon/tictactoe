@@ -1,5 +1,6 @@
 <tr>
-  <td><%= link_to(user) do %>User <%= user.id %><% end %></td>
-  <td><%= user.name %></td>
-  <td><%= truncate(user.profile) %></td>
+  <td><%= link_to user.name, user_path(user) %></td>
+  <td>[ ]</td>
+  <td>[ ]</td>
+  <td>[ ]</td>
 </tr>

@@ -7,4 +7,11 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: "You can't access this page"
   end
 
+  before_filter :configure_devise_params, if: :devise_controller?
+  def configure_devise_params
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:name, :profile, :email, :password, :password_confirmation)
+    end
+  end
+
 end

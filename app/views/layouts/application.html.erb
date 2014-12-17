@@ -8,14 +8,30 @@
 </head>
 <body>
 
-  <%= render partial: "/layouts/authentication" %>
+  <div class="page-wrap">
+    
+    <header>
+      <h1>Tictactoe</h1>
+      <div class="authentication">
+        <%= render partial: "/layouts/authentication" %>        
+      </div>
+    </header>
 
-  <%= render partial: "/layouts/menu" %>
+    <nav>
+      <%= render partial: "/layouts/menu" %>
+    </nav>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <main>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
 
-  <%= yield %>
+    <footer>
+      &copy; Tictactoe 2014
+    </footer>
+
+  </div>
 
 </body>
 </html>

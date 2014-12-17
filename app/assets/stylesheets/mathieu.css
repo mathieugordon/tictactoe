@@ -1,0 +1,88 @@
+/* ==================== PAGE ==================== */
+
+body {
+  background-image: url("http://i.imgur.com/CXDr8yz.jpg");
+  font-family: Arial;
+}
+
+.page-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==================== HEADER ==================== */
+
+header {
+  display: inline-block;
+  width: 100%;
+}
+
+header h1 {
+  color: rgba(255,255,255,0.9);
+  float: left;
+  font-size: 40px;
+}
+
+.authentication {
+  padding-top: 10px;
+  float: right;
+  color: rgba(255,255,255,0.9);
+}
+
+.authentication a, .authentication a:visited {
+  background-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  padding: 2px;
+}
+
+.authentication a:hover {
+  background-color: rgba(255,255,255,0.9);
+  color: black;
+}
+
+/* ==================== NAV ==================== */
+
+nav {
+  padding-bottom: 20px;
+}
+
+nav ul {
+  padding-left: 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav li a, nav li a:visited {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  padding: 10px;
+}
+
+nav li a:hover {
+  background-color: rgba(255,255,255,0.9);
+  color: black;
+}
+
+/* ==================== MAIN ==================== */
+
+main {
+  padding: 0 2% 50px 2%;
+  background-color: rgba(255,255,255,0.8);
+  display: inline-block;
+  width: 96%;  
+}
+
+/* ==================== FOOTER ==================== */
+
+footer {
+  color: rgba(255,255,255,0.9);
+  font-size: 12px;
+  text-align: center;
+  padding: 40px;
+}

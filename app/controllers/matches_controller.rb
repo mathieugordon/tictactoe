@@ -9,6 +9,8 @@ class MatchesController < ApplicationController
   end
 
   def new
+    @opponents = User.all
+    @opponents.delete(current_user)
   end
 
   def create

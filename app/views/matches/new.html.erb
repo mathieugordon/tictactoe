@@ -13,14 +13,16 @@
     </div>
   <% end %>
 
-  <%= m.label :player_x_id %>
-  <%= m.text_field :player_x_id %>
-  <br>
-  <%= m.label :player_o_id %>
-  <%= m.text_field :player_o_id %>
-  <br>
-  <%= m.submit "Start new match" %>
+  <%= radio_button_tag(:icon, "X") %>
+  <%= label_tag(:icon_x, "play as X") %>
+  <%= radio_button_tag(:icon, "O") %>
+  <%= label_tag(:icon_y, "play as O") %>
 
-  Start new game against friend or computer
+  <%= m.label :player_o_id %>
+  <%= m.collection_select(:player_o_id, @opponents, :id, :name) %>
+
+  <br>
+
+  <%= m.submit "Start new match" %>
 
 <% end %>

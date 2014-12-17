@@ -20,6 +20,16 @@ class MatchesController < ApplicationController
     end
   end
 
+  def move
+    @match = Match.find(params[:id])
+    @move = Move.create(match_id: @match.id, player_id: current_user, cell: params[:cell], marker: marker(current_user))
+    if @move.save
+      redirect_to(@match)
+    else
+      render :show
+    end
+  end
+
   def match_params
     params.require(:match).permit(
       :player_x_id,

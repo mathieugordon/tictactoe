@@ -2,4 +2,22 @@
 
 <h2><%= @match.player_x_id %> vs. <%= @match.player_o_id %></h2>
 
-<ul><%= render @match.moves.order(:cell) %></ul>
+<p>
+  Played moves: <%= render @match.moves.order(:cell) %>  
+</p>
+
+<p>
+  Remaining moves:
+  <% @match.remaining_moves.each do |cell| %>
+    <%= link_to cell, move_path(@match, cell: cell), method: :post %>
+  <% end %>
+</p>
+
+<% if @move && @move.errors.any? %>
+  Move not saved due to the following errors:
+  <ul>
+    <% @move.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>

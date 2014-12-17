@@ -15,15 +15,15 @@ class Match < ActiveRecord::Base
 
   # basic gameplay
 
-  def print_board
-    populated_board = Array.new(9) { "-" }
-    moves.each { |move| populated_board[move.cell] = move.marker }
-    populated_board.each_slice(3) { |slice| puts slice.join(" ") }
-  end
+  # def print_board
+  #   populated_board = Array.new(9) { "-" }
+  #   moves.each { |move| populated_board[move.cell] = move.marker }
+  #   populated_board.each_slice(3) { |slice| puts slice.join(" ") }
+  # end
 
-  def play(player, cell)
-    Move.create(match_id: self.id, player_id: player.id, cell: cell, marker: marker(player))
-  end
+  # def play(player, cell)
+  #   Move.create(match_id: self.id, player_id: player.id, cell: cell, marker: marker(player))
+  # end
 
   # AI
 

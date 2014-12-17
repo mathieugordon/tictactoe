@@ -27,7 +27,8 @@ class Match < ActiveRecord::Base
   def description
     if complete?
       if won? then "won by #{winning_player.name}"
-      elsif drawn? "draw"
+      elsif drawn? then "draw"
+      else "complete"
       end
     else
       "open"
@@ -99,6 +100,16 @@ class Match < ActiveRecord::Base
 
   # check game
 
+  def analyze!
+    if won?
+      self.update(complete?: true, winning_player_id: last_player.id, losing_player_id: next_player.id)
+    elsif drawn?
+      self.update(complete?: true)
+    elsif computer_move?
+      Move.create(match_id: self.id, player_id: next_player.id, cell: auto_move(next_player), marker: marker(next_player))
+    end
+  end
+
   def won?
     won_by?(player_x) || won_by?(player_o)
   end
@@ -115,9 +126,8 @@ class Match < ActiveRecord::Base
     moves.count == 9
   end
 
-  def analyze!
-    self.update(complete?: true, winning_player_id: last_player.id, losing_player_id: next_player.id) if won?
-    self.update(complete?: true) if drawn?
+  def computer_move?
+    next_player.role == "computer"
   end
 
   # last and next methods

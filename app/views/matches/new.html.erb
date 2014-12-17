@@ -13,17 +13,14 @@
     </div>
   <% end %>
 
-  <table>
-    <tr>
-      <td><%= m.label :player_x_id %></td>
-      <td><%= m.text_field :player_x_id %></td>
-    </tr>
-    <tr>
-      <td><%= m.label :player_o_id %></td>
-      <td><%= m.text_field :player_o_id %></td>
-    </tr>
-  </table>
-
+  <%= m.label :player_x_id %>
+  <%= m.text_field :player_x_id %>
+  <br>
+  <%= m.label :player_o_id %>
+  <%= m.text_field :player_o_id %>
+  <br>
   <%= m.submit "Start new match" %>
+
+  Start new game against friend or computer
 
 <% end %>

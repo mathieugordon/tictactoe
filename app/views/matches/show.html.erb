@@ -1,32 +1,56 @@
-<h1>Match <%= @match.id %></h1>
-
-<h2><%= @match.player_x_id %> vs. <%= @match.player_o_id %></h2>
-
-<p>
-  Played moves: <%= render @match.moves.order(:cell) %>  
-</p>
-
-<p>
-  Remaining moves:
-  <% @match.remaining_moves.each do |cell| %>
-    <% if @match.next_player == current_user %>
-      <%= link_to cell, move_path(@match, cell: cell), method: :post %>
-    <% else %>
-      <%= cell %>
-    <% end %>
-  <% end %>
-</p>
-
-<p>
-  Next player:
-  <%= @match.next_player.name %>
-</p>
-
 <% if @move && @move.errors.any? %>
-  Move not saved due to the following errors:
-  <ul>
-    <% @move.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+  <p>
+    Move not saved due to the following errors:
+    <ul>
+      <% @move.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </p>
 <% end %>
+
+<div class="text">
+
+  <h1>Match <%= @match.id %></h1>
+
+  <% if @match.complete? %>
+    <h2>Game over!</h2>
+  <% end %>
+
+  <p>
+    X: <%= @match.player_x.name %>
+    <% if @match.player_x == @match.next_player && !@match.complete? %>
+      ⬅ next player
+    <% end %>
+  </p>
+
+  <p>
+    O: <%= @match.player_o.name %>
+    <% if @match.player_o == @match.next_player && !@match.complete? %>
+      ⬅ next player
+    <% end %>
+  </p>
+
+</div>
+
+<table class="board">
+
+  <% @match.board.each_slice(3) do |slice| %>
+    <tr>
+      <% slice.each do |cell| %>
+        <td class="cell">
+          <% if @match.moves.where(cell: cell).any? %>
+            <%= render @match.moves.where(cell: cell) %>
+          <% else %>
+            <% if @match.next_player == current_user && !@match.complete? %>
+              <%= link_to "⬚", move_path(@match, cell: cell), method: :post %>
+            <% else %>
+              <%= "⬚" %>
+            <% end %>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+
+</table>

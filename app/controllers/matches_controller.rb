@@ -24,6 +24,7 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
     @move = Move.create(match_id: @match.id, player_id: current_user.id, cell: params[:cell], marker: @match.marker(current_user))
     if @move.save
+      @match.analyze!
       redirect_to(@match)
     else
       render :show

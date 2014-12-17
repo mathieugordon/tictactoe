@@ -15,21 +15,21 @@ class Match < ActiveRecord::Base
 
   # basic gameplay
 
-  # def print_board
+  # def pb
   #   populated_board = Array.new(9) { "-" }
   #   moves.each { |move| populated_board[move.cell] = move.marker }
   #   populated_board.each_slice(3) { |slice| puts slice.join(" ") }
   # end
 
-  # def play(player, cell)
+  # def p(player, cell)
   #   Move.create(match_id: self.id, player_id: player.id, cell: cell, marker: marker(player))
   # end
 
   # AI
 
-  def ai
-    play(next_player, auto_move(next_player))
-  end
+  # def ai
+  #   p(next_player, auto_move(next_player))
+  # end
 
   def auto_move(player)
     winning_move(player) || blocking_move(player) || progressive_move(player) || random_move
@@ -78,10 +78,6 @@ class Match < ActiveRecord::Base
 
   # check game
 
-  def finished?
-    won? || drawn?
-  end
-
   def won?
     won_by?(player_x) || won_by?(player_o)
   end
@@ -98,12 +94,9 @@ class Match < ActiveRecord::Base
     moves.count == 9
   end
 
-  def set_result!
-    if won?
-      self.update(complete?: true, winner: last_player.id, loser: next_player.id)
-    else
-      self.update(complete?: true)
-    end
+  def analyze!
+    self.update(complete?: true, winner: last_player.id, loser: next_player.id) if won?
+    self.update(complete?: true) if drawn?
   end
 
   # last and next methods

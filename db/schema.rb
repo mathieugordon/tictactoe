@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20141216213657) do
     t.integer  "player_x_id"
     t.integer  "player_o_id"
     t.boolean  "complete?"
-    t.integer  "winner"
-    t.integer  "loser"
+    t.integer  "winning_player_id"
+    t.integer  "losing_player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

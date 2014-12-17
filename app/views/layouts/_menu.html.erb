@@ -1,5 +1,5 @@
 <ul>
-  <li><a href="#">Leaderboard</a></li>
+  <li><%= link_to "Leaderboard", users_path %></li>
   <li><%= link_to "My matches", matches_path if can? :read, Match %></li>
   <li><%= link_to "New match", new_match_path %></li>
 </ul>

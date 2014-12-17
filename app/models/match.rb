@@ -2,8 +2,8 @@ class Match < ActiveRecord::Base
   has_many :moves
   belongs_to :player_x, class_name: "User"
   belongs_to :player_o, class_name: "User"
-  belongs_to :winner, class_name: "User"
-  belongs_to :loser, class_name: "User"
+  belongs_to :winning_player, class_name: "User"
+  belongs_to :losing_player, class_name: "User"
 
   # game data
 
@@ -13,6 +13,25 @@ class Match < ActiveRecord::Base
 
   def winning_combinations
     [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+  end
+
+  # tags
+
+  def player_description(player)
+    if player == winning_player then "winner"
+    elsif player == losing_player then "loser"
+    else "neutral"
+    end
+  end
+
+  def description
+    if complete?
+      if won? then "won by #{winning_player.name}"
+      elsif drawn? "draw"
+      end
+    else
+      "open"
+    end
   end
 
   # basic gameplay
@@ -97,7 +116,7 @@ class Match < ActiveRecord::Base
   end
 
   def analyze!
-    self.update(complete?: true, winner: last_player.id, loser: next_player.id) if won?
+    self.update(complete?: true, winning_player_id: last_player.id, losing_player_id: next_player.id) if won?
     self.update(complete?: true) if drawn?
   end
 

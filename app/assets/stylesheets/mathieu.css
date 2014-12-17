@@ -95,8 +95,29 @@ main {
   background-color: white;
 }
 
-table .matches {
-  background-color: red;
+.list {
+  background-color: white;
+  width: 100%;
+  text-align: left;
+}
+
+img {
+  float: right;
+}
+
+/* ==================== TAGS ==================== */
+
+.tag {
+  display: inline-block;
+  padding: 5px;  
+}
+
+.winner {
+  background-color: rgba(0,255,0,0.4);
+}
+
+.loser {
+  background-color: rgba(255,0,0,0.2);
 }
 
 /* ==================== FOOTER ==================== */

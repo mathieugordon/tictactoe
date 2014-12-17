@@ -1,0 +1,27 @@
+<h1>Editing profile</h1>
+
+<%= form_for @user do |u| %>
+
+  <% if @user.errors.any? %>
+      User not saved due to the following errors:
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
+  <table>
+    <tr>
+      <td><%= u.label :name %></td>
+      <td><%= u.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><%= u.label :profile %></td>
+      <td><%= u.text_area :profile %></td>
+    </tr>
+  </table>
+
+  <%= u.submit "Save changes to profile" %>
+
+<% end %>

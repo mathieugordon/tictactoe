@@ -1,0 +1,13 @@
+<div class="text">
+
+  <h1><%= @user.name %></h1>
+
+  <p>
+    <%= @user.profile %>
+  </p>  
+
+  <%= link_to "Edit", edit_user_path if can? :edit, @user %>
+
+</div>
+
+<img src="http://placehold.it/150x150/ffffff">

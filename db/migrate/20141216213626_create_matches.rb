@@ -4,8 +4,8 @@ class CreateMatches < ActiveRecord::Migration
       t.integer :player_x_id
       t.integer :player_o_id
       t.boolean :complete?
-      t.integer :winner
-      t.integer :loser
+      t.integer :winning_player_id
+      t.integer :losing_player_id
 
       t.timestamps
     end

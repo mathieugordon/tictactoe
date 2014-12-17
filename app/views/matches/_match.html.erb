@@ -1,4 +1,14 @@
-<li>
-  <%= link_to(match) do %>Match <%= match.id %><% end %>:
-  <%= match.player_x_id %> vs. <%= match.player_o_id %>
-</li>
+<tr>
+  <td>
+    <%= link_to(match) do %>Match <%= match.id %><% end %>
+  </td>
+  <td>
+    <div class= "tag <%= match.player_description(match.player_x) %>"><%= match.player_x.name %></div>
+  </td>
+  <td>
+    <div class= "tag <%= match.player_description(match.player_o) %>"><%= match.player_o.name %></div>
+  </td>
+  <td>
+    <%= match.description %>
+  </td>
+</tr>

@@ -18,20 +18,10 @@ class User < ActiveRecord::Base
     player_x_matches.where(status: status).count + player_o_matches.where(status: status).count
   end
 
-  def matches_in_progress
-    matches_by_status("in progress")
-  end
-
-  def wins
-    winning_player_matches.count
-  end
-
-  def losses
-    losing_player_matches.count
-  end
-
-  def draws
-    matches_by_status("draw")
-  end 
+  def matches() player_x_matches.count + player_o_matches.count end
+  def matches_in_progress() matches_by_status("in progress") end
+  def wins() winning_player_matches.count end
+  def losses() losing_player_matches.count end
+  def draws() matches_by_status("drawn") end 
 
 end

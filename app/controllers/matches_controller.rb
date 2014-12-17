@@ -22,7 +22,7 @@ class MatchesController < ApplicationController
 
   def move
     @match = Match.find(params[:id])
-    @move = Move.create(match_id: @match.id, player_id: current_user, cell: params[:cell], marker: marker(current_user))
+    @move = Move.create(match_id: @match.id, player_id: current_user.id, cell: params[:cell], marker: @match.marker(current_user))
     if @move.save
       redirect_to(@match)
     else

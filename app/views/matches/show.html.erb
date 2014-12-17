@@ -9,8 +9,17 @@
 <p>
   Remaining moves:
   <% @match.remaining_moves.each do |cell| %>
-    <%= link_to cell, move_path(@match, cell: cell), method: :post %>
+    <% if @match.next_player == current_user %>
+      <%= link_to cell, move_path(@match, cell: cell), method: :post %>
+    <% else %>
+      <%= cell %>
+    <% end %>
   <% end %>
+</p>
+
+<p>
+  Next player:
+  <%= @match.next_player.name %>
 </p>
 
 <% if @move && @move.errors.any? %>

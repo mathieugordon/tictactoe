@@ -3,16 +3,9 @@
     <%= link_to(match) do %>Match <%= match.id %><% end %>
   </td>
   <td>
-    <div class= "tag <%= match.player_description(match.player_x) %>">
-      <%= link_to match.player_x.name, user_path(match.player_x) %>
-    </div>
+    <%= link_to match.player_x.name, user_path(match.player_x) %> vs. <%= link_to match.player_o.name, user_path(match.player_o) %>
   </td>
   <td>
-    <div class= "tag <%= match.player_description(match.player_o) %>">
-      <%= link_to match.player_o.name, user_path(match.player_o) %>
-    </div>
-  </td>
-  <td>
-    <%= match.description %>
+    <%= match.short_description %>
   </td>
 </tr>

@@ -13,23 +13,35 @@
 
   <h1>Match <%= @match.id %></h1>
 
-  <% if @match.complete? %>
-    <h2>Game over!</h2>
-  <% end %>
+  <h2><%= @match.long_description %></h2>
 
-  <p>
-    X: <%= @match.player_x.name %>
-    <% if @match.player_x == @match.next_player && !@match.complete? %>
-      ⬅ next player
-    <% end %>
-  </p>
-
-  <p>
-    O: <%= @match.player_o.name %>
-    <% if @match.player_o == @match.next_player && !@match.complete? %>
-      ⬅ next player
-    <% end %>
-  </p>
+ 
+  <table>
+    <tr>
+      <td>X: </td>
+      <td>
+        <div class= "tag <%= @match.player_result_tag(@match.player_x) %>">
+          <%= link_to @match.player_x.name, user_path(@match.player_x) %>
+        </div>
+      </td>
+      <td>
+        <%= @match.next_player_with_arrow(@match.player_x) %>
+        <%= @match.player_result_with_arrow(@match.player_x) %>
+      </td>
+    </tr>
+    <tr>
+      <td>O: </td>
+      <td>
+        <div class= "tag <%= @match.player_result_tag(@match.player_o) %>">
+          <%= link_to @match.player_o.name, user_path(@match.player_o) %>
+        </div>
+      </td>
+      <td>
+        <%= @match.next_player_with_arrow(@match.player_o) %>
+        <%= @match.player_result_with_arrow(@match.player_o) %>
+      </td>
+    </tr>
+  </table>
 
 </div>
 

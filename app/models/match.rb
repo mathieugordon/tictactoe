@@ -17,21 +17,35 @@ class Match < ActiveRecord::Base
 
   # tags
 
-  def player_description(player)
-    if player == winning_player then "winner"
-    elsif player == losing_player then "loser"
+  def next_player_with_arrow(player)
+    player == next_player && !complete? ? "⬅ next player" : ""
+  end
+
+  def player_result_with_arrow(player)
+    if player == winning_player then "⬅ winner"
+    elsif player == losing_player then "⬅ loser"
+    else ""
+    end
+  end
+
+  def player_result_tag(player)
+    if player == winning_player then "good"
+    elsif player == losing_player then "bad"
     else "neutral"
     end
   end
 
-  def description
+  def short_description
+    complete? ? "game over" : "in progress"
+  end
+
+  def long_description
     if complete?
-      if won? then "won by #{winning_player.name}"
-      elsif drawn? then "draw"
-      else "complete"
+      if won? then "Game over - won by #{winning_player.name}!"
+      elsif drawn? then "Game over - draw!"
       end
     else
-      "open"
+      "Game in progress!"
     end
   end
 

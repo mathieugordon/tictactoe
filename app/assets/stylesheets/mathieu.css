@@ -113,30 +113,49 @@ main h2 {
   max-width: 310px;
 }
 
-.list {
-  background-color: white;
-  width: 100%;
-  text-align: left;
-}
-
 img {
   float: right;
-  margin: 30px;
+  margin: 20px 0;
+}
+
+/* ==================== LISTS ==================== */
+
+.listing table {
+  border-spacing: 0;
+}
+
+.listing tr:nth-child(even) {
+  background: rgba(255,255,255,0.5);
+}
+
+.listing td, th {
+  background-color: rgba(255,255,255,0.6);
+  text-align: left;
+  padding: 5px 40px 5px 10px;
 }
 
 /* ==================== BOARD ==================== */
 
-.board {
-  font-size: 60px;
-  text-align: center;
+.board table {
   float: right;
   padding: 20px 0;
 }
 
-.cell {
+.board td {
+  font-size: 60px;
+  text-align: center;
   height: 100px;
   width: 100px;
   background-color: white;
+}
+
+.board a {
+  color: white;
+  text-decoration: none;
+}
+
+.board a:hover {
+  color: black;
 }
 
 /* ==================== TAGS ==================== */

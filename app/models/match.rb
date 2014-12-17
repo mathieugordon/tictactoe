@@ -35,17 +35,27 @@ class Match < ActiveRecord::Base
     end
   end
 
-  def short_description
-    complete? ? "game over" : "in progress"
+  def short_description(player)
+    if complete?
+      if won? then "won by #{winning_player.name}!"
+      elsif drawn? then "draw"
+      end
+    else
+      if player == next_player then "your turn"
+      elsif player != next_player then "#{next_player}'s turn"
+      end
+    end
   end
 
-  def long_description
+  def long_description(player)
     if complete?
       if won? then "Game over - won by #{winning_player.name}!"
       elsif drawn? then "Game over - draw!"
       end
     else
-      "Game in progress!"
+      if player == next_player then "Game in progress - your turn!"
+      elsif player != next_player then "Game in progress - #{next_player}'s turn!"
+      end
     end
   end
 

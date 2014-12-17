@@ -3,6 +3,8 @@ class MatchesController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @matches_in_progress = Match.where('player_x_id = ? OR player_o_id = ?', current_user.id, current_user.id)
+    @completed_matches = Match.where('player_x_id = ? OR player_o_id = ?', current_user.id, current_user.id)
   end
 
   def show

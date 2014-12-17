@@ -1,15 +1,37 @@
-<h1>Open matches</h1>
+<h1>Matches in progress</h1>
 
-<table class="list">
-  <tr>
-    <th>ID</th>
-    <th>Player X</th>
-    <th>Player O</th>
-    <th>Status</th>
-  </tr>
-  <%= render @matches %>
-</table>
+<% if @matches_in_progress.any? %>
+  <div class="listing">
+    <table>
+      <tr>
+        <th>Match</th>
+        <th>Players</th>
+        <th>Status</th>
+      </tr>
+      <%= render @matches_in_progress %>
+    </table>
+  </div>
+<% else %>
+  <p>
+    None yet
+  </p>
+<% end %>
 
 <h1>Completed matches</h1>
 
-<p>[ ]</p>
+<% if @completed_matches.any? %>
+  <div class="listing">
+    <table>
+      <tr>
+        <th>Match</th>
+        <th>Players</th>
+        <th>Status</th>
+      </tr>
+      <%= render @completed_matches %>
+    </table>
+  </div>
+<% else %>
+  <p>
+    None yet
+  </p>
+<% end %>

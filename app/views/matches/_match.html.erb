@@ -6,6 +6,6 @@
     <%= link_to match.player_x.name, user_path(match.player_x) %> vs. <%= link_to match.player_o.name, user_path(match.player_o) %>
   </td>
   <td>
-    <%= match.short_description %>
+    <%= match.short_description(current_user) %>
   </td>
 </tr>

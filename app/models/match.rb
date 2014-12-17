@@ -2,6 +2,8 @@ class Match < ActiveRecord::Base
   has_many :moves
   belongs_to :player_x, class_name: "User"
   belongs_to :player_o, class_name: "User"
+  belongs_to :winner, class_name: "User"
+  belongs_to :loser, class_name: "User"
 
   # game data
 

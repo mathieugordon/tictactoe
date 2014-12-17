@@ -9,6 +9,8 @@ class Move < ActiveRecord::Base
 
   validate :current_player, on: :create
 
+  # validate if match is active
+
   def marker_is_x_or_o
     errors.add(:marker, "should be X or O") unless marker == "X" || marker == "O"
   end

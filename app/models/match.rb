@@ -25,7 +25,7 @@ class Match < ActiveRecord::Base
 
   def check_if_won? () check_if_won_by?(player_x) || check_if_won_by?(player_o) end
   def check_if_drawn?() moves.count == 9 end
-  def next_player_is_computer?() next_player.role == "computer" end
+  def next_player_is_computer?() next_player.role?(:computer) end
 
   def check_if_won_by?(player)
     winning_combinations.any? do |combination|

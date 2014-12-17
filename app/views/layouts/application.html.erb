@@ -22,8 +22,10 @@
     </nav>
 
     <main>
-      <%= render partial: "/layouts/messages" %>
-      <%= yield %>
+      <div class="maincontainer">
+        <%= render partial: "/layouts/messages" %>
+        <%= yield %>        
+      </div>
     </main>
 
     <footer>

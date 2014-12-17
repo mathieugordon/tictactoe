@@ -24,7 +24,7 @@ header h1 {
 }
 
 .authentication {
-  padding-top: 10px;
+  margin-top: 10px;
   float: right;
   color: rgba(255,255,255,0.9);
 }
@@ -91,27 +91,26 @@ nav li a:hover {
 /* ==================== MAIN ==================== */
 
 main {
-  padding: 0 2% 20px 2%;
   background-color: rgba(255,255,255,0.8);
   display: inline-block;
-  width: 96%;  
+  width: 100%;
+}
+
+.maincontainer {
+  padding: 0 20px 30px 20px;
+}
+
+main h1 {
+  font-size: 32px;
+}
+
+main h2 {
+  font-size: 20px;
 }
 
 .text {
   float: left;
-}
-
-.board {
-  font-size: 60px;
-  text-align: center;
-  float: right;
-  margin: 20px;
-}
-
-.cell {
-  height: 100px;
-  width: 100px;
-  background-color: white;
+  max-width: 310px;
 }
 
 .list {
@@ -125,19 +124,38 @@ img {
   margin: 30px;
 }
 
+/* ==================== BOARD ==================== */
+
+.board {
+  font-size: 60px;
+  text-align: center;
+  float: right;
+  padding: 20px 0;
+}
+
+.cell {
+  height: 100px;
+  width: 100px;
+  background-color: white;
+}
+
 /* ==================== TAGS ==================== */
 
 .tag {
   display: inline-block;
-  padding: 5px;  
+  padding: 5px;
 }
 
-.winner {
+.good {
   background-color: rgba(0,255,0,0.5);
 }
 
-.loser {
+.bad {
   background-color: rgba(255,0,0,0.1);
+}
+
+.neutral {
+  background-color: rgba(100,100,100,0.5)
 }
 
 /* ==================== FOOTER ==================== */

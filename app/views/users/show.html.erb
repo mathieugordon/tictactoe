@@ -1,14 +1,14 @@
-<div class="text">
+<div class="wide-text">
 
   <h1><%= @user.name %></h1>
 
   <div class="stats">
     <table>
       <tr class="big">
-        <td><%= @user.wins %></td>
-        <td><%= @user.losses %></td>
-        <td><%= @user.draws %></td>
-        <td><%= @user.matches_in_progress %></td>
+        <td><div class="bigtag good"><%= @user.wins %></div></td>
+        <td><div class="bigtag bad"><%= @user.losses %></div></td>
+        <td><div class="bigtag neutral"><%= @user.draws %></div></td>
+        <td><div class="bigtag neutral"><%= @user.matches_in_progress %></div></td>
       </tr>
       <tr>
         <td>wins</td>
@@ -19,12 +19,12 @@
     </table>
   </div>
 
-  <p>
+  <p class="profile-text">
     <%= @user.profile %>
   </p>
 
   <p>
-    <%= link_to "Edit", edit_user_path if can? :edit, @user %>
+    <%= link_to "edit profile", edit_user_path if can? :edit, @user %>
   </p>
   
 </div>

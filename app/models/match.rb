@@ -18,8 +18,11 @@ class Match < ActiveRecord::Base
 
   def check!
     check_finished!
-    auto_play! if next_player_is_computer?
-    check_finished!
+    if next_player_is_computer?
+      auto_play!
+      reload
+      check_finished!
+    end
   end
 
   def check_finished!

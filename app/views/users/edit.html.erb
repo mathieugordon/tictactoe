@@ -17,15 +17,18 @@
       <td><%= u.text_field :name %></td>
     </tr>
     <tr>
-      <td><%= u.label :profile %></td>
-      <td><%= u.text_area :profile %></td>
+      <td><%= u.label :profile_text %></td>
+      <td><%= u.text_area :profile_text %></td>
+    </tr>
+    <tr>
+      <td><%= u.label :recipe_image %></td>
+      <td><%= u.file_field :recipe_image %></td>
+    </tr>
+    <tr>
+      <td><%= u.label :remote_recipe_image_url %></td>
+      <td><%= u.text_field :remote_recipe_image_url %></td>
     </tr>
   </table>
-
-  <br>
-  [ ADD CARRIERWAVE]
-  <br>
-  <br>
 
   <%= u.submit "Save changes to profile" %>
 

@@ -20,7 +20,7 @@
   </div>
 
   <p class="profile-text">
-    <%= @user.profile %>
+    <%= @user.profile_text %>
   </p>
 
   <p>
@@ -29,4 +29,6 @@
   
 </div>
 
-<img src="http://placehold.it/150x150/ffffff">
+<!-- <img src="http://placehold.it/150x150/ffffff"> -->
+
+<%= image_tag @user.user_image.url %>

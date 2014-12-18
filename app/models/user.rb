@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  mount_uploader :user_image, UserImageUploader
+
   def role?(role_to_compare)
     self.role.to_s == role_to_compare.to_s
   end

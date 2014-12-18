@@ -8,6 +8,4 @@
 
 User.delete_all
 u0 = User.create!(email: "computer@mailinator.com", password: "password", role: "computer", name: "Computer", profile_text: "Most Powerful Computer on Earth")
-u1 = User.create!(email: "admin@mailinator.com", password: "password", role: "admin", name: "AdminGuy", profile_text: "admin profile")
-u2 = User.create!(email: "bob@mailinator.com", password: "password", name: "BOB", profile_text: "bobs profile")
-u3 = User.create!(email: "fred@mailinator.com", password: "password", name: "Freddy", profile_text: "fred is best")
+u1 = User.create!(email: "admin@mailinator.com", password: "password", role: "admin", name: "Admin", profile_text: "Best Admin on Earth")

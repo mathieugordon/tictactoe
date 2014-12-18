@@ -9,57 +9,12 @@
   </p>
 <% end %>
 
-<div class="text">
+<h1 class="center"><%= @match.long_description(current_user) %></h1>
 
-  <h1>Match</h1>
-  
-  <h2><%= @match.long_description(current_user) %></h2>
-  
-  <table>
-    <tr>
-      <td>X: </td>
-      <td>
-        <div class= "tag <%= @match.player_tag(@match.player_x) %>">
-          <%= link_to @match.player_x.name, user_path(@match.player_x) %>
-        </div>
-      </td>
-      <td>
-        <%= @match.player_indicator(@match.player_x) %>
-      </td>
-    </tr>
-    <tr>
-      <td>O: </td>
-      <td>
-        <div class= "tag <%= @match.player_tag(@match.player_o) %>">
-          <%= link_to @match.player_o.name, user_path(@match.player_o) %>
-        </div>
-      </td>
-      <td>
-        <%= @match.player_indicator(@match.player_o) %>
-      </td>
-    </tr>
-  </table>
-
-</div>
-
-<div class="board">
-  
-  <table>
-    <% @match.populated_board.each_slice(3) do |slice| %>
-      <tr>
-        <% slice.each do |cell| %>
-          <td>
-            <% if cell == "X" || cell == "O" %>
-              <%= cell %>
-            <% else %>
-              <% if @match.status == "in progress" && @match.next_player?(current_user) %>
-                <%= link_to @match.marker(current_user), move_path(@match, cell: cell), method: :post %>
-              <% end %>
-            <% end %>
-          </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </table>
-
-</div>
+<table>
+  <tr>
+    <td><%= render partial: "player", locals: {match: @match, player: @match.player_x} %></td>
+    <td><%= render partial: "board", locals: {match: @match} %></td>
+    <td><%= render partial: "player", locals: {match: @match, player: @match.player_o} %></td>
+  </tr>
+</table>

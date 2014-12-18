@@ -153,21 +153,21 @@ class Match < ActiveRecord::Base
   def long_description(player)
     case status
     when "in progress" then next_player?(player) ? "Your turn!" : "Waiting for opponent!"
-    when "won" then winning_player?(player) ? "Game over - won!" : "Game over - lost!"
+    when "won" then winning_player?(player) ? "Game over - you won!" : "Game over - you lost!"
     when "drawn" then "Game over - draw!"
     end
   end
 
   def player_indicator(player)
     case status
-    when "in progress" then next_player?(player) ? "⬅ next player" : ""
-    when "won" then winning_player?(player) ? "⬅ winner" : "⬅ loser"
+    when "in progress" then next_player?(player) ? "next player!" : "waiting..."
+    when "won" then winning_player?(player) ? "winner!" : "loser!"
     end
   end
 
   def player_tag(player)
     case status
-    when "in progress" then next_player?(player) ? "good" : "neutral"
+    when "in progress" then next_player?(player) ? "active" : "neutral"
     when "won" then winning_player?(player) ? "good" : "bad"
     when "drawn" then "neutral"
     end

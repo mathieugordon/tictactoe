@@ -1,7 +1,7 @@
 <h1>Matches in progress</h1>
 
 <% if @matches_in_progress.any? %>
-  <div class="boxes">
+  <div class="box-container">
     <%= render @matches_in_progress %>
   </div>
 <% else %>
@@ -13,7 +13,7 @@
 <h1>Completed matches</h1>
 
 <% if @completed_matches.any? %>
-  <div class="boxes">
+  <div class="box-container">
     <%= render @completed_matches %>
   </div>
 <% else %>

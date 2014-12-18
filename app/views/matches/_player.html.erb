@@ -1,0 +1,8 @@
+<%= link_to(user_path(player)) do %>
+  <div class="box <%= match.player_tag(player) %>">
+    <p class="box-small">playing as <%= match.marker(player) %></p>
+    <%= image_tag player.user_image.thumb.url, alt: "player image" %>
+    <p class="box-large"><%= player.name %></p>
+    <p class="box-medium"><%= match.player_indicator(player) %></p>
+  </div>
+<% end %>

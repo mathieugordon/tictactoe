@@ -1,13 +1,8 @@
 <%= link_to(match) do %>
-  <div class="box <%= match.player_tag(current_user) %>">
-    <p class="box-top">
-      vs.
-    </p>
-    <p class="box-middle">
-      <%= match.opponent(current_user).name %>
-    </p>
-    <p class="box-bottom">
-      <%= match.short_description(current_user) %>
-    </p>
+  <div class="box box-float <%= match.player_tag(current_user) %>">
+    <p class="box-medium"><%= match.short_description(current_user) %></p>
+    <p class="box-small">vs.</p>
+    <%= image_tag match.opponent(current_user).user_image.thumb.url, alt: "player image" %>
+    <p class="box-large"><%= match.opponent(current_user).name %></p>
   </div>
 <% end %>

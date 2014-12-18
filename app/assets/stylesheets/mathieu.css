@@ -5,6 +5,10 @@ body {
   font-family: Arial;
 }
 
+a {
+  text-decoration: none;
+}
+
 .page-wrap {
   max-width: 700px;
   margin: 0 auto;
@@ -136,7 +140,7 @@ main h2 {
   max-width: 600px;
 }
 
-img {
+.user-image-profile-page {
   float: right;
   margin: 20px 0;
 }
@@ -153,39 +157,49 @@ img {
 
 /* ==================== BOXES ==================== */
 
-.boxes {
+.box-container {
   display: inline-block;
 }
 
 .box {
-  height: 120px;
-  width: 120px;
-  margin: 10px;
-  padding: 10px;
-  background-color: white;
   text-align: center;
+  height: 130px;
+  width: 130px;
+  margin: 10px;
+  padding: 7px;
+  background-color: white;
+}
+
+.box-float {
   float: left;
 }
 
-.box-top {
+.box-small {
   font-size: 10px;
+  margin: 5px;
 }
 
-.box-middle {
-  font-size: 20px;
+.box img {
+  width: 50px;
+  margin: 5px;
+}
+
+.box-large {
+  font-size: 18px;
   font-weight: bold;
+  margin: 5px;
 }
 
-.box-bottom {
-  font-size: 14px;
+.box-medium {
+  font-size: 12px;
   font-style: italic;
+  margin: 5px;
 }
 
 /* ==================== BOARDS ==================== */
 
-.board table {
-  float: right;
-  padding: 20px 0;
+.center {
+  text-align: center;
 }
 
 .board td {
@@ -219,17 +233,10 @@ img {
   font-size: 60px;
 }
 
-.good {
-  background-color: rgba(50,200,50,0.9);
-}
-
-.bad {
-  background-color: rgba(250,150,150,0.9);
-}
-
-.neutral {
-  background-color: rgba(170,170,170,0.9)
-}
+.active { background-color: rgba(255,255,255,0.9); }
+.good { background-color: rgba(50,200,50,0.9); }
+.bad { background-color: rgba(250,150,150,0.9); }
+.neutral { background-color: rgba(170,170,170,0.9) }
 
 /* ==================== FOOTER ==================== */
 

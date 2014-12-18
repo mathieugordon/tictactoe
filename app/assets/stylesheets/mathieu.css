@@ -21,11 +21,11 @@ a {
   background-color: rgba(255,255,255,0.9);
 }
 
-.good {
+.good, .notice {
   background-color: rgba(50,200,50,0.9);
 }
 
-.bad {
+.bad, .alert, #error_explanation {
   background-color: rgba(250,150,150,0.9);
 }
 
@@ -93,21 +93,20 @@ nav li a:hover {
 
 /* ==================== FLASH MESSAGES ==================== */
 
-.notice, .alert {
+.notice, .alert, #error_explanation {
   width: 80%;
   font-size: 12px;
   font-weight: normal;
-  padding: 10px;
-  text-align: center;
   margin: 10px auto;
 }
 
-.notice {
-  background-color: rgba(100,200,100,0.9);
+.notice, .alert {
+  text-align: center;
+  padding: 10px;
 }
 
-.alert {
-  background-color: rgba(200,100,100,0.9);
+#error_explanation {
+  padding: 1px 20px;
 }
 
 /* ==================== MAIN ==================== */

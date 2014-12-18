@@ -2,6 +2,7 @@
 
 body {
   background-image: url("http://i.imgur.com/CXDr8yz.jpg");
+  background-size: cover;
   font-family: Arial;
 }
 

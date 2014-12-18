@@ -118,7 +118,7 @@ img {
   margin: 20px 0;
 }
 
-/* ==================== LISTS ==================== */
+/* ==================== LISTING TABLES ==================== */
 
 .listing table {
   border-spacing: 0;
@@ -131,10 +131,11 @@ img {
 .listing td, th {
   background-color: rgba(255,255,255,0.6);
   text-align: left;
-  padding: 5px 40px 5px 10px;
+  padding: 5px 20px 5px 10px;
+  min-width: 60px;
 }
 
-/* ==================== BOARD ==================== */
+/* ==================== BOARDS ==================== */
 
 .board table {
   float: right;

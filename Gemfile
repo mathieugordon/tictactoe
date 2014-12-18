@@ -4,6 +4,7 @@ gem 'devise'
 gem 'cancancan'
 gem 'ransack'
 gem 'carrierwave', '0.9.0'
+gem 'rmagick'
 
 group :development, :test do
   gem 'pry-rails'

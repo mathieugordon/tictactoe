@@ -1,5 +1,5 @@
 <tr>
-  <td><%= image_tag user.user_image.tiny.url, alt: "player image" %></td>
+  <td><%= link_to(user_path(user)) do %><%= image_tag user.user_image.tiny.url, alt: "player image" %><% end %></td>
   <td><span class="padding-right"><%= link_to user.name, user_path(user) %></span></td>
   <td><%= user.wins %></td>
   <td><%= user.losses %></td>

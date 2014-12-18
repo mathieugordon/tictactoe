@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
 
   mount_uploader :user_image, UserImageUploader
 
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :user_image, presence: true
+
   def role?(role_to_compare)
     self.role.to_s == role_to_compare.to_s
   end

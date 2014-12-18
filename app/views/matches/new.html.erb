@@ -3,13 +3,13 @@
 <%= form_for @match do |m| %>
 
   <% if @match.errors.any? %>
-    <div class="error">
-      Match not saved due to the following errors:
-      <ul>
-        <% @match.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
+    <div id="error_explanation">
+      <h2>Match not saved due to the following errors:</h2>
+        <ul>
+          <% @match.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
     </div>
   <% end %>
 

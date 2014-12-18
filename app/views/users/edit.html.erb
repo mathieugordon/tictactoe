@@ -3,12 +3,14 @@
 <%= form_for @user do |u| %>
 
   <% if @user.errors.any? %>
-      User not saved due to the following errors:
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
+    <div id="error_explanation">
+      <h2>Profile not saved due to the following errors:</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+    </div>
   <% end %>
 
   <table>

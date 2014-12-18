@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20141216213657) do
   create_table "matches", force: true do |t|
     t.integer  "player_x_id"
     t.integer  "player_o_id"
-    t.string   "status"
+    t.string   "status",            default: "in progress"
     t.integer  "winning_player_id"
     t.integer  "losing_player_id"
     t.datetime "created_at"
@@ -36,22 +36,25 @@ ActiveRecord::Schema.define(version: 20141216213657) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",                   null: false
+    t.string   "encrypted_password",     default: "",                   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,                    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role"
+    t.string   "role",                   default: "user"
     t.string   "name"
-    t.text     "profile_text"
+    t.text     "profile_text",           default: "describe yourself!"
     t.string   "user_image"
+    t.integer  "wins",                   default: 0
+    t.integer  "losses",                 default: 0
+    t.integer  "draws",                  default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

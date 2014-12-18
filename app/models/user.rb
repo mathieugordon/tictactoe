@@ -16,14 +16,24 @@ class User < ActiveRecord::Base
     self.role.to_s == role_to_compare.to_s
   end
 
-  def matches_by_status(status)
+  def update_counters!
+    self.update(wins: number_of_wins, losses: number_of_losses, draws: number_of_draws)
+  end
+
+  def number_of_matches_by_status(status)
     player_x_matches.where(status: status).count + player_o_matches.where(status: status).count
   end
 
-  def matches() player_x_matches.count + player_o_matches.count end
-  def matches_in_progress() matches_by_status("in progress") end
-  def wins() winning_player_matches.count end
-  def losses() losing_player_matches.count end
-  def draws() matches_by_status("drawn") end 
+  def number_of_wins
+    winning_player_matches.count
+  end
+
+  def number_of_losses
+    losing_player_matches.count
+  end
+
+  def number_of_draws
+    number_of_matches_by_status("drawn")
+  end
 
 end

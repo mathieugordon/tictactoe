@@ -31,10 +31,18 @@ class Match < ActiveRecord::Base
 
   def set_won!
     self.update(status: "won", winning_player_id: last_player.id, losing_player_id: next_player.id)
+    update_user_counters!
   end
 
   def set_drawn!
     self.update(status: "drawn")
+    update_user_counters!
+  end
+
+  def update_user_counters!
+    reload
+    player_x.update_counters!
+    player_o.update_counters!
   end
 
   def won?

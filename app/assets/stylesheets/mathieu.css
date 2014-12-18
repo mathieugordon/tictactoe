@@ -135,6 +135,36 @@ img {
   min-width: 60px;
 }
 
+/* ==================== BOXES ==================== */
+
+.boxes {
+  display: inline-block;
+}
+
+.box {
+  height: 120px;
+  width: 120px;
+  margin: 10px;
+  padding: 10px;
+  background-color: white;
+  text-align: center;
+  float: left;
+}
+
+.box-top {
+  font-size: 10px;
+}
+
+.box-middle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.box-bottom {
+  font-size: 14px;
+  font-style: italic;
+}
+
 /* ==================== BOARDS ==================== */
 
 .board table {

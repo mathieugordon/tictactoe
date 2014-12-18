@@ -1,11 +1,13 @@
-<tr>
-  <td>
-    <%= link_to(match) do %>Match <%= match.id %><% end %>
-  </td>
-  <td>
-    <%= link_to match.player_x.name, user_path(match.player_x) %> vs. <%= link_to match.player_o.name, user_path(match.player_o) %>
-  </td>
-  <td>
-    <%= match.short_description(current_user) %>
-  </td>
-</tr>
+<%= link_to(match) do %>
+  <div class="box <%= match.player_tag(current_user) %>">
+    <p class="box-top">
+      vs.
+    </p>
+    <p class="box-middle">
+      <%= match.opponent(current_user).name %>
+    </p>
+    <p class="box-bottom">
+      <%= match.short_description(current_user) %>
+    </p>
+  </div>
+<% end %>

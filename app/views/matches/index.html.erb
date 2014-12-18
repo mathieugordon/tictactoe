@@ -1,15 +1,8 @@
 <h1>Matches in progress</h1>
 
 <% if @matches_in_progress.any? %>
-  <div class="listing">
-    <table>
-      <tr>
-        <th>Match</th>
-        <th>Opponent</th>
-        <th>Status</th>
-      </tr>
-      <%= render @matches_in_progress %>
-    </table>
+  <div class="boxes">
+    <%= render @matches_in_progress %>
   </div>
 <% else %>
   <p>
@@ -20,15 +13,8 @@
 <h1>Completed matches</h1>
 
 <% if @completed_matches.any? %>
-  <div class="listing">
-    <table>
-      <tr>
-        <th>Match</th>
-        <th>Opponent</th>
-        <th>Status</th>
-      </tr>
-      <%= render @completed_matches %>
-    </table>
+  <div class="boxes">
+    <%= render @completed_matches %>
   </div>
 <% else %>
   <p>

@@ -47,7 +47,7 @@
             <% if @match.moves.where(cell: cell).any? %>
               <%= @match.moves.where(cell: cell).first.marker %>
             <% else %>
-              <% if @match.in_progress? && @match.next_player?(current_user) %>
+              <% if @match.status == "in progress" && @match.next_player?(current_user) %>
                 <%= link_to @match.marker(current_user), move_path(@match, cell: cell), method: :post %>
               <% end %>
             <% end %>

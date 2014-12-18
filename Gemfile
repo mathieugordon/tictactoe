@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'devise'
 gem 'cancancan'
+gem 'ransack'
+gem 'carrierwave', '0.9.0'
 
 group :development, :test do
   gem 'pry-rails'

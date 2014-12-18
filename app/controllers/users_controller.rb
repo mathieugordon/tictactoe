@@ -3,7 +3,9 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = User.all.sort_by(&:wins).reverse
+    # @users = User.all.sort_by(&:wins).reverse
+    @q = User.search(params[:q])
+    @users = @q.result(distinct: true)
   end
 
   def show

@@ -1,5 +1,6 @@
 <ul>
   <li><%= link_to "Leaderboard", users_path if can? :read, User %></li>
+  <li><%= link_to "My profile", user_path(current_user) if can? :edit, User %></li>
   <li><%= link_to "My matches", matches_path if can? :read, Match %></li>
   <li><%= link_to "New match", new_match_path if can? :create, Match %></li>
 </ul>

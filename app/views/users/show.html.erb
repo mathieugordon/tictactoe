@@ -2,12 +2,31 @@
 
   <h1><%= @user.name %></h1>
 
+  <div class="stats">
+    <table>
+      <tr class="big">
+        <td><%= @user.wins %></td>
+        <td><%= @user.losses %></td>
+        <td><%= @user.draws %></td>
+        <td><%= @user.matches_in_progress %></td>
+      </tr>
+      <tr>
+        <td>wins</td>
+        <td>losses</td>
+        <td>draws</td>
+        <td>matches<br>in progress</td>
+      </tr>
+    </table>
+  </div>
+
   <p>
     <%= @user.profile %>
-  </p>  
+  </p>
 
-  <%= link_to "Edit", edit_user_path if can? :edit, @user %>
-
+  <p>
+    <%= link_to "Edit", edit_user_path if can? :edit, @user %>
+  </p>
+  
 </div>
 
 <img src="http://placehold.it/150x150/ffffff">

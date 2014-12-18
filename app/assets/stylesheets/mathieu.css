@@ -118,21 +118,32 @@ img {
   margin: 20px 0;
 }
 
-/* ==================== LISTING TABLES ==================== */
+/* ==================== LEADERBOARD ==================== */
 
-.listing table {
+.leaderboard table {
   border-spacing: 0;
 }
 
-.listing tr:nth-child(even) {
+.leaderboard tr:nth-child(even) {
   background: rgba(255,255,255,0.5);
 }
 
-.listing td, th {
+.leaderboard td, th {
   background-color: rgba(255,255,255,0.6);
   text-align: left;
-  padding: 5px 20px 5px 10px;
-  min-width: 60px;
+  padding: 5px 10px 5px 10px;
+  min-width: 50px;
+}
+
+/* ==================== PROFILE ==================== */
+
+.stats td {
+  text-align: center;
+}
+
+.big td {
+  font-size: 60px;
+  min-width: 100px;
 }
 
 /* ==================== BOXES ==================== */

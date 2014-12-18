@@ -18,19 +18,23 @@ a {
 }
 
 .active {
-  background-color: rgba(255,255,255,0.9);
+  background-color: #ffffff;
+  border: 1px solid gray;
 }
 
 .good, .notice {
-  background-color: rgba(50,200,50,0.9);
+  background-color: #88DD88;
+  border: 1px solid green;
 }
 
 .bad, .alert, #error_explanation {
-  background-color: rgba(250,150,150,0.9);
+  background-color: #ffaaaa;
+  border: 1px solid red;
 }
 
 .neutral {
-  background-color: rgba(170,170,170,0.9)
+  background-color: #bbbbbb;
+  border: 1px solid gray;
 }
 
 /* ==================== HEADER ==================== */
@@ -137,13 +141,30 @@ main h1 {
 
 .leaderboard td, th {
   background-color: rgba(255,255,255,0.5);
-  text-align: left;
-  padding: 5px 10px 5px 10px;
+  padding: 5px;
   min-width: 70px;
 }
 
 .padding-right {
   padding-right: 40px;
+}
+
+.scores {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.good-text {
+  color: green;
+}
+
+.bad-text {
+  color: red;
+}
+
+.neutral-text {
+  color: gray;
 }
 
 /* ==================== PROFILE ==================== */

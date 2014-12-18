@@ -17,7 +17,7 @@
 
   <p class="profile-text"><%= @user.profile_text %></p>
 
-  <p><%= link_to "Edit profile", edit_user_path if can? :edit, @user %></p>
+  <p><%= link_to "Edit profile", edit_user_path if can? :update, @user %></p>
   
 </div>
 

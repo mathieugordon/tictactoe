@@ -1,7 +1,21 @@
 <tr>
-  <td><%= link_to(user_path(user)) do %><%= image_tag user.user_image.tiny.url, alt: "player image" %><% end %></td>
-  <td><span class="padding-right"><%= link_to user.name, user_path(user) %></span></td>
-  <td><%= user.wins %></td>
-  <td><%= user.losses %></td>
-  <td><%= user.draws %></td>
+  <td>
+    <%= link_to(user_path(user)) do %>
+      <%= image_tag user.user_image.tiny.url, alt: "player image" %>
+    <% end if can? :read, user %>
+  </td>
+  <td>
+    <span class="padding-right">
+      <%= link_to user.name, user_path(user) if can? :read, user %>
+    </span>
+  </td>
+  <td>
+    <b><%= user.wins %></b>
+  </td>
+  <td>
+    <b><%= user.losses %></b>
+  </td>
+  <td>
+    <b><%= user.draws %></b>
+  </td>
 </tr>

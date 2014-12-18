@@ -5,4 +5,4 @@
     <p class="box-large"><%= player.name %></p>
     <p class="box-medium"><%= match.player_indicator(player) %></p>
   </div>
-<% end %>
+<% end if can? :read, player %>

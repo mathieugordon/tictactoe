@@ -5,4 +5,4 @@
     <%= image_tag match.opponent(current_user).user_image.tiny.url, alt: "opponent image" %>
     <p class="box-large"><%= match.opponent(current_user).name %></p>
   </div>
-<% end %>
+<% end if can? :read, match %>

@@ -10,8 +10,11 @@
 <% end %>
 
 <div class="text">
+
   <h1>Match</h1>
+  
   <h2><%= @match.long_description(current_user) %></h2>
+  
   <table>
     <tr>
       <td>X: </td>
@@ -36,16 +39,18 @@
       </td>
     </tr>
   </table>
+
 </div>
 
 <div class="board">
+  
   <table>
-    <% @match.board.each_slice(3) do |slice| %>
+    <% @match.populated_board.each_slice(3) do |slice| %>
       <tr>
         <% slice.each do |cell| %>
           <td>
-            <% if @match.moves.where(cell: cell).any? %>
-              <%= @match.moves.where(cell: cell).first.marker %>
+            <% if cell == "X" || cell == "O" %>
+              <%= cell %>
             <% else %>
               <% if @match.status == "in progress" && @match.next_player?(current_user) %>
                 <%= link_to @match.marker(current_user), move_path(@match, cell: cell), method: :post %>
@@ -56,4 +61,5 @@
       </tr>
     <% end %>
   </table>
+
 </div>

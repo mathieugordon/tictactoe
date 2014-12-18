@@ -21,7 +21,7 @@ class MatchesController < ApplicationController
       @match = Match.create(player_x_id: match_params[:player_o_id], player_o_id: current_user.id, status: "in progress")
     end
     if @match.save
-      @match.check_and_update!
+      @match.check!
       redirect_to(@match)
     else
       render :new
@@ -32,7 +32,7 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
     @move = Move.create(match_id: @match.id, player_id: current_user.id, cell: params[:cell], marker: @match.marker(current_user))
     if @move.save
-      @match.check_and_update!
+      @match.check!
       redirect_to(@match)
     else
       render :show

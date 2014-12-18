@@ -2,7 +2,7 @@
 
 <%= search_form_for @q do |f| %>
   <p>
-    <%= f.label :name_cont %>
+    Player name contains:
     <%= f.text_field :name_cont %>
     <%= f.submit %>
   </p>
@@ -11,7 +11,7 @@
 <div class="leaderboard">
   <table>
     <tr>
-      <th>Player</th>
+      <th colspan="2">Player</th>
       <th><%= sort_link @q, :wins %></th>
       <th><%= sort_link @q, :losses %></th>
       <th><%= sort_link @q, :draws %></th>

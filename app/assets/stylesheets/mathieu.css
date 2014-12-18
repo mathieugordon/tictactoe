@@ -5,13 +5,31 @@ body {
   font-family: Arial;
 }
 
+.page-wrap {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==================== SHARED ELEMENTS ==================== */
+
 a {
   text-decoration: none;
 }
 
-.page-wrap {
-  max-width: 700px;
-  margin: 0 auto;
+.active {
+  background-color: rgba(255,255,255,0.9);
+}
+
+.good {
+  background-color: rgba(50,200,50,0.9);
+}
+
+.bad {
+  background-color: rgba(250,150,150,0.9);
+}
+
+.neutral {
+  background-color: rgba(170,170,170,0.9)
 }
 
 /* ==================== HEADER ==================== */
@@ -100,20 +118,11 @@ main {
 }
 
 .maincontainer {
-  padding: 0 20px 30px 20px;
+  padding: 0 20px 40px 20px;
 }
 
 main h1 {
   font-size: 32px;
-}
-
-main h2 {
-  font-size: 20px;
-}
-
-.text {
-  float: left;
-  max-width: 310px;
 }
 
 /* ==================== LEADERBOARD ==================== */
@@ -130,29 +139,43 @@ main h2 {
   background-color: rgba(255,255,255,0.5);
   text-align: left;
   padding: 5px 10px 5px 10px;
-  min-width: 50px;
+  min-width: 70px;
+}
+
+.padding-right {
+  padding-right: 40px;
 }
 
 /* ==================== PROFILE ==================== */
 
-.wide-text {
+.profile-container {
   float: left;
-  max-width: 600px;
+  max-width: 400px;
 }
 
-.user-image-profile-page {
-  float: right;
-  margin: 20px 0;
-}
-
-.stats td {
+.profile-container td {
   text-align: center;
   vertical-align: top;
 }
 
+.bigtag {
+  padding: 0 20px;
+  margin: 0 10px;
+  font-size: 60px;
+}
+
+.profile-container p {
+  padding: 10px;
+}
+
 .profile-text {
   background-color: white;
-  padding: 10px;
+  margin-top: 20px;
+}
+
+.profile-image {
+  float: right;
+  margin: 20px 0;
 }
 
 /* ==================== BOXES ==================== */
@@ -166,48 +189,47 @@ main h2 {
   height: 130px;
   width: 130px;
   margin: 10px;
-  padding: 7px;
-  background-color: white;
+  padding: 5px;
 }
 
 .box-float {
   float: left;
 }
 
-.box-small {
-  font-size: 10px;
-  margin: 5px;
-}
-
-.box img {
-  width: 50px;
-  margin: 5px;
+.box img, .box p {
+  margin: 4px;
 }
 
 .box-large {
   font-size: 18px;
   font-weight: bold;
-  margin: 5px;
 }
 
 .box-medium {
   font-size: 12px;
   font-style: italic;
-  margin: 5px;
 }
 
-/* ==================== BOARDS ==================== */
+.box-small {
+  font-size: 10px;
+}
+
+/* ==================== BOARD ==================== */
 
 .center {
   text-align: center;
 }
 
+.board table {
+  margin: 10px;
+}
+
 .board td {
-  font-size: 60px;
-  text-align: center;
+  background-color: white;
   height: 100px;
   width: 100px;
-  background-color: white;
+  font-size: 60px;
+  text-align: center;
 }
 
 .board a {
@@ -218,25 +240,6 @@ main h2 {
 .board a:hover {
   color: black;
 }
-
-/* ==================== TAGS ==================== */
-
-.tag {
-  display: inline-block;
-  padding: 5px;
-}
-
-.bigtag {
-  display: inline-block;
-  padding: 0 20px;
-  margin: 0 10px;
-  font-size: 60px;
-}
-
-.active { background-color: rgba(255,255,255,0.9); }
-.good { background-color: rgba(50,200,50,0.9); }
-.bad { background-color: rgba(250,150,150,0.9); }
-.neutral { background-color: rgba(170,170,170,0.9) }
 
 /* ==================== FOOTER ==================== */
 

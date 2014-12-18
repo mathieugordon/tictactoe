@@ -1,32 +1,24 @@
-<div class="wide-text">
+<div class="profile-container">
 
   <h1><%= @user.name %></h1>
 
-  <div class="stats">
-    <table>
-      <tr class="big">
-        <td><div class="bigtag good"><%= @user.wins %></div></td>
-        <td><div class="bigtag bad"><%= @user.losses %></div></td>
-        <td><div class="bigtag neutral"><%= @user.draws %></div></td>
-        <td><div class="bigtag neutral"><%= @user.matches_in_progress %></div></td>
-      </tr>
-      <tr>
-        <td>wins</td>
-        <td>losses</td>
-        <td>draws</td>
-        <td>matches<br>in progress</td>
-      </tr>
-    </table>
-  </div>
+  <table>
+    <tr>
+      <td><div class="bigtag good"><%= @user.wins %></div></td>
+      <td><div class="bigtag bad"><%= @user.losses %></div></td>
+      <td><div class="bigtag neutral"><%= @user.draws %></div></td>
+    </tr>
+    <tr>
+      <td>wins</td>
+      <td>losses</td>
+      <td>draws</td>
+    </tr>
+  </table>
 
-  <p class="profile-text">
-    <%= @user.profile_text %>
-  </p>
+  <p class="profile-text"><%= @user.profile_text %></p>
 
-  <p>
-    <%= link_to "edit profile", edit_user_path if can? :edit, @user %>
-  </p>
+  <p><%= link_to "Edit profile", edit_user_path if can? :edit, @user %></p>
   
 </div>
 
-<%= image_tag @user.user_image.thumb.url, class: "user-image-profile-page" %>
+<%= image_tag @user.user_image.small.url, class: "profile-image", alt: "profile image" %>

@@ -13,17 +13,17 @@
     </div>
   <% end %>
 
-<p>
-  Play as:
-  <%= radio_button_tag(:icon, "X") %> X (first move)
-  <%= radio_button_tag(:icon, "O") %> O (second move)
-</p>
+  <p>
+    Play as:
+    <%= radio_button_tag(:icon, "X") %> X (first move)
+    <%= radio_button_tag(:icon, "O") %> O (second move)
+  </p>
 
-<p>
-  Play against:
-  <%= m.collection_select(:player_o_id, @opponents, :id, :name) %>  
-</p>
+  <p>
+    Play against:
+    <%= m.collection_select(:player_o_id, @opponents, :id, :name) %>  
+  </p>
 
-<%= m.submit "Start new match" %>
+  <%= m.submit "Start new match" %>
 
 <% end %>

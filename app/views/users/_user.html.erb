@@ -1,5 +1,6 @@
 <tr>
-  <td><%= link_to user.name, user_path(user) %></td>
+  <td><%= image_tag user.user_image.tiny.url, alt: "player image" %></td>
+  <td><span class="padding-right"><%= link_to user.name, user_path(user) %></span></td>
   <td><%= user.wins %></td>
   <td><%= user.losses %></td>
   <td><%= user.draws %></td>
